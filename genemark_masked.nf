@@ -3,7 +3,7 @@ params.workdir = "/home/johannes/rdrive/PPG_SEQ_DATA-LICHTJ-SE00182/johannes/not
 
 //Folder containing fasta files of genomes to be annotated
 params.repeatmasker = "${params.workdir}/output/*/*.repeats.masked.soft.fasta"
-params.repeatmodeer = "${params.workdir}/output/*/*.repeatmodeler.masked.soft.fasta"
+params.repeatmodeler = "${params.workdir}/output/*/*.repeatmodeler.masked.soft.fasta"
 
 params.outputdir = "${params.workdir}/output"
 
@@ -16,13 +16,13 @@ params.minRepLength = 250
 
 //Creating a channel containing all the sequences we want annotated
 sequencesRepeatmasker = Channel
-.fromPath(params.input)
+.fromPath(params.repeatmasker)
 .map{ file -> tuple(file.simpleName, file)}
 .tap{repeatmaskerMasked}
 
 
 sequencesRepeatmodeler = Channel
-.fromPath(params.input)
+.fromPath(params.repeatmodeler)
 .map{ file -> tuple(file.simpleName, file)}
 .tap{repeatmodelerMasked}
 
