@@ -30,7 +30,7 @@ sequencesRepeatmodeler = Channel
 //GenemarkES annotation
 process annotation_genemark_repeatmasker {
     tag {sampleID}
-    cpus 10
+    cpus 5
     publishDir "${params.outputdir}/${sampleID}/", mode: 'copy', pattern: '*.gtf'
 
     input:
@@ -48,7 +48,7 @@ process annotation_genemark_repeatmasker {
 //GenemarkES annotation
 process annotation_genemark_repeatmodeler {
     tag {sampleID}
-    cpus 10
+    cpus 5
     publishDir "${params.outputdir}/${sampleID}/", mode: 'copy', pattern: '*.gtf'
 
     input:
